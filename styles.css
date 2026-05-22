@@ -486,3 +486,153 @@ img {
 }
 
 }
+
+/* ============================================
+   FIX GALLERY LINKS + BUTTONS
+============================================ */
+
+.service-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.service-link:hover {
+    transform: translateX(4px);
+    opacity: 0.9;
+}
+
+/* ============================================
+   GALLERY GRID FIX
+============================================ */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.gallery-item {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+}
+
+.gallery-image-wrapper {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================
+   GALLERY BUTTON FIX
+============================================ */
+
+.gallery-cta .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+/* ============================================
+   MOBILE FIXES
+============================================ */
+
+@media (max-width: 768px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-item {
+        width: 100%;
+    }
+
+    .gallery-image-wrapper {
+        height: 220px;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-info {
+        padding: 18px;
+    }
+
+    .gallery-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .gallery-info p {
+        font-size: 0.95rem;
+    }
+
+    .gallery-cta .btn-primary {
+        width: 100%;
+    }
+
+    .filter-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .filter-tab {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
+}
+
+/* ============================================
+   EXTRA SMALL DEVICES
+============================================ */
+
+@media (max-width: 480px) {
+
+    .gallery-image-wrapper {
+        height: 200px;
+    }
+
+    .gallery-grid {
+        gap: 16px;
+    }
+
+    .gallery-info {
+        padding: 16px;
+    }
+
+    .gallery-info h3 {
+        font-size: 1rem;
+    }
+
+    .gallery-info p {
+        font-size: 0.9rem;
+    }
+}
