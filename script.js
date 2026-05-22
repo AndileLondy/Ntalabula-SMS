@@ -1,6 +1,6 @@
 /**
  * Ntalabula Social Media Solutions
- * Main JavaScript file
+ * Main JavaScript file for interactions and form handling
  */
 
 // ============================================
@@ -11,7 +11,7 @@ const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
 /**
- * Toggle mobile menu
+ * Initialize mobile menu
  */
 function initMobileMenu() {
 
@@ -21,7 +21,7 @@ function initMobileMenu() {
 
             navLinks.classList.toggle('active');
 
-            // Change hamburger icon to X
+            // Change icon
             if (navLinks.classList.contains('active')) {
                 menuToggle.innerHTML = '✕';
             } else {
@@ -54,9 +54,7 @@ function initFormHandlers() {
 
         inputs.forEach(input => {
 
-            input.addEventListener('input', () => {
-                clearErrorFor(input.id);
-            });
+            input.addEventListener('input', () => clearErrorFor(input.id));
 
         });
 
@@ -65,7 +63,8 @@ function initFormHandlers() {
 }
 
 /**
- * Handle form submission
+ * Handle form submission with validation
+ * @param {Event} e
  */
 function handleFormSubmit(e) {
 
@@ -73,12 +72,19 @@ function handleFormSubmit(e) {
 
     clearAllErrors();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+    // Get form values
+    const name =
+        document.getElementById('name').value.trim();
+
+    const email =
+        document.getElementById('email').value.trim();
+
+    const message =
+        document.getElementById('message').value.trim();
 
     let isValid = true;
 
+    // Validate Name
     if (!validateName(name)) {
 
         showError(
@@ -90,6 +96,7 @@ function handleFormSubmit(e) {
 
     }
 
+    // Validate Email
     if (!validateEmail(email)) {
 
         showError(
@@ -101,6 +108,7 @@ function handleFormSubmit(e) {
 
     }
 
+    // Validate Message
     if (!validateMessage(message)) {
 
         showError(
@@ -112,39 +120,47 @@ function handleFormSubmit(e) {
 
     }
 
+    // Submit
     if (isValid) {
+
         submitForm(name, email, message);
+
     }
 
 }
 
 /**
- * Validate name
+ * Validate name field
  */
 function validateName(name) {
+
     return name.length >= 2;
+
 }
 
 /**
- * Validate email
+ * Validate email field
  */
 function validateEmail(email) {
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     return emailRegex.test(email);
 
 }
 
 /**
- * Validate message
+ * Validate message field
  */
 function validateMessage(message) {
+
     return message.length >= 10;
+
 }
 
 /**
- * Show error message
+ * Show field error
  */
 function showError(fieldId, errorMessage) {
 
@@ -157,10 +173,13 @@ function showError(fieldId, errorMessage) {
 
         errorElement.classList.add('active');
 
-        const input = document.getElementById(fieldId);
+        const input =
+            document.getElementById(fieldId);
 
         if (input) {
+
             input.style.borderColor = '#d32f2f';
+
         }
 
     }
@@ -168,7 +187,7 @@ function showError(fieldId, errorMessage) {
 }
 
 /**
- * Clear error for field
+ * Clear field error
  */
 function clearErrorFor(fieldId) {
 
@@ -179,10 +198,13 @@ function clearErrorFor(fieldId) {
 
         errorElement.classList.remove('active');
 
-        const input = document.getElementById(fieldId);
+        const input =
+            document.getElementById(fieldId);
 
         if (input) {
+
             input.style.borderColor = '';
+
         }
 
     }
@@ -198,20 +220,24 @@ function clearAllErrors() {
         document.querySelectorAll('.form-error');
 
     errorElements.forEach(el => {
+
         el.classList.remove('active');
+
     });
 
     const inputs =
         contactForm.querySelectorAll('input, textarea');
 
     inputs.forEach(input => {
+
         input.style.borderColor = '';
+
     });
 
 }
 
 /**
- * Simulate form submission
+ * Submit form
  */
 function submitForm(name, email, message) {
 
@@ -221,6 +247,7 @@ function submitForm(name, email, message) {
         message
     });
 
+    // Success message
     const successMessage =
         document.getElementById('successMessage');
 
@@ -231,8 +258,10 @@ function submitForm(name, email, message) {
 
         successMessage.classList.add('active');
 
+        // Reset form
         contactForm.reset();
 
+        // Hide success
         setTimeout(() => {
 
             successMessage.classList.remove('active');
@@ -244,9 +273,12 @@ function submitForm(name, email, message) {
 }
 
 // ============================================
-// Smooth Scroll Navigation
+// Navigation & Smooth Scroll
 // ============================================
 
+/**
+ * Initialize smooth scroll
+ */
 function initSmoothScroll() {
 
     const navLinkItems =
@@ -256,7 +288,8 @@ function initSmoothScroll() {
 
         link.addEventListener('click', (e) => {
 
-            const href = link.getAttribute('href');
+            const href =
+                link.getAttribute('href');
 
             // Skip external pages
             if (!href.startsWith('#')) {
@@ -277,6 +310,7 @@ function initSmoothScroll() {
 
                 // Close mobile menu after click
                 navLinks.classList.remove('active');
+
                 menuToggle.innerHTML = '☰';
 
             }
@@ -288,18 +322,23 @@ function initSmoothScroll() {
 }
 
 // ============================================
-// Header Scroll Effect
+// Scroll Effects
 // ============================================
 
+/**
+ * Add shadow to header on scroll
+ */
 function initScrollEffects() {
 
-    const header = document.querySelector('.header');
+    const header =
+        document.querySelector('.header');
 
     let isScrolled = false;
 
     window.addEventListener('scroll', () => {
 
-        const hasScrolled = window.scrollY > 10;
+        const hasScrolled =
+            window.scrollY > 10;
 
         if (hasScrolled !== isScrolled) {
 
@@ -308,12 +347,12 @@ function initScrollEffects() {
             if (isScrolled) {
 
                 header.style.boxShadow =
-                    '0 4px 12px rgba(0, 0, 0, 0.1)';
+                    '0 4px 12px rgba(0,0,0,0.1)';
 
             } else {
 
                 header.style.boxShadow =
-                    '0 2px 8px rgba(0, 0, 0, 0.06)';
+                    '0 2px 8px rgba(0,0,0,0.06)';
 
             }
 
@@ -327,6 +366,9 @@ function initScrollEffects() {
 // Initialize App
 // ============================================
 
+/**
+ * Initialize all scripts
+ */
 function init() {
 
     initMobileMenu();
@@ -344,7 +386,10 @@ function init() {
 // Wait for DOM
 if (document.readyState === 'loading') {
 
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener(
+        'DOMContentLoaded',
+        init
+    );
 
 } else {
 
