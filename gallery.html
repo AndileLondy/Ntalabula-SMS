@@ -13,6 +13,7 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+            margin-bottom: 40px;
         }
 
         .filter-tab {
@@ -60,6 +61,92 @@
         .btn-primary:active {
             transform: scale(0.98);
         }
+
+        /* Card spacing fixes */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 36px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.04);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+        }
+
+        .gallery-label {
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+            backdrop-filter: blur(4px);
+        }
+
+        .gallery-info {
+            padding: 20px 22px 24px;
+        }
+
+        .gallery-info h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+
+        .gallery-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .gallery-section {
+            padding: 20px 0 60px;
+        }
+
+        .gallery-filters {
+            padding: 32px 0 8px;
+        }
+
+        .gallery-header {
+            padding: 60px 0 20px;
+        }
     </style>
 </head>
 <body>
@@ -73,7 +160,7 @@
                 <li><a href="index.html#about" class="nav-link">About</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get in Touch</button>
+            <button class="cta-button" onclick="window.location.href='index.html#contact'">Get in Touch</button>
         </nav>
     </header>
 
@@ -101,6 +188,7 @@
     <section class="gallery-section">
         <div class="section-wrapper">
             <div class="gallery-grid">
+
                 <!-- Food Content 1 -->
                 <div class="gallery-item" data-category="food">
                     <div class="gallery-image-wrapper">
@@ -226,6 +314,7 @@
                         <p>Integrated campaign with cohesive visual identity and messaging.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -276,7 +365,7 @@
 
                 const filter = this.getAttribute('data-filter');
                 const items = document.querySelectorAll('.gallery-item');
-                
+
                 items.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
