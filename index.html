@@ -8,19 +8,104 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 16px 24px 20px;
+                gap: 4px;
+                border-top: 1px solid #eee;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+                z-index: 999;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                list-style: none;
+            }
+
+            .nav-links .nav-link {
+                display: block;
+                padding: 10px 0;
+                font-size: 16px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-links li:last-child .nav-link {
+                border-bottom: none;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .header {
+                position: relative;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <div class="logo">Ntalabula</div>
-            <ul class="nav-links">
-                <li><a href="#services" class="nav-link">Services</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" class="nav-link" onclick="closeMenu()">Services</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" onclick="closeMenu()">About</a></li>
+                <li><a href="#contact" class="nav-link" onclick="closeMenu()">Contact</a></li>
             </ul>
             <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get in Touch</button>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -46,9 +131,8 @@
         <div class="section-wrapper">
             <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
-                <!-- Service Card 1 -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1504674900149-731c6541e5d9?w=400&h=300&fit=crop" alt="Food photography" class="service-image">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400&h=300&fit=crop" alt="Food photography flat lay" class="service-image">
                     <div class="service-content">
                         <h3 class="service-title">Food Content</h3>
                         <p class="service-description">Stunning food photography and videos that make brands unmissable.</p>
@@ -56,7 +140,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" alt="Travel and food adventure" class="service-image">
                     <div class="service-content">
@@ -66,9 +149,8 @@
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1516738901601-eab0b2e9e6bd?w=400&h=300&fit=crop" alt="Social media campaign and video editing" class="service-image">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=300&fit=crop" alt="Social media campaign content creation" class="service-image">
                     <div class="service-content">
                         <h3 class="service-title">Campaigns & CapCut Editing</h3>
                         <p class="service-description">Full-spectrum social campaigns with professional video editing magic.</p>
@@ -89,7 +171,7 @@
                 </p>
             </div>
             <div class="about-visual">
-                <img src="https://images.unsplash.com/photo-1556740733-2da063256c94?w=500&h=500&fit=crop" alt="Team collaborating on food content" class="about-img">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=500&fit=crop" alt="Creative team collaborating" class="about-img">
             </div>
         </div>
     </section>
@@ -106,7 +188,6 @@
                     <p><strong>Email:</strong> <a href="mailto:hello@ntalabula.co.za">hello@ntalabula.co.za</a></p>
                     <p><strong>Location:</strong> South Africa</p>
                     <div class="map-container">
-                        <!-- Replace iframe src with your own Google Maps embed URL -->
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.823046783476!2d24.627120076344157!3d-26.204756376898986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e55158ae9a8caf5%3A0x1000000000000000!2sSouth%20Africa!5e0!3m2!1sen!2za!4v1234567890" width="100%" height="300" style="border:0; border-radius: 12px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -166,5 +247,29 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            const btn = document.getElementById('hamburger');
+            nav.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('navLinks');
+            const btn = document.getElementById('hamburger');
+            nav.classList.remove('open');
+            btn.classList.remove('open');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('navLinks');
+            const btn = document.getElementById('hamburger');
+            if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
 </html>
