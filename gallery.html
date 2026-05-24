@@ -62,10 +62,7 @@
             transform: scale(0.98);
         }
 
-        /* Gallery header — matches hero layout on index */
-        .gallery-header {
-            padding: 60px 0;
-        }
+        .gallery-header { padding: 60px 0; }
 
         .gallery-header-wrapper {
             display: flex;
@@ -73,9 +70,7 @@
             gap: 48px;
         }
 
-        .gallery-header-content {
-            flex: 1;
-        }
+        .gallery-header-content { flex: 1; }
 
         .gallery-title {
             font-size: 38px;
@@ -107,22 +102,11 @@
         }
 
         @media (max-width: 768px) {
-            .gallery-header-wrapper {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .gallery-header-img {
-                max-width: 100%;
-                height: 220px;
-            }
-
-            .gallery-title {
-                font-size: 28px;
-            }
+            .gallery-header-wrapper { flex-direction: column; gap: 24px; }
+            .gallery-header-img { max-width: 100%; height: 220px; }
+            .gallery-title { font-size: 28px; }
         }
 
-        /* Card styling */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -133,13 +117,13 @@
             border-radius: 16px;
             overflow: hidden;
             background: #fff;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .gallery-image-wrapper {
@@ -156,18 +140,12 @@
             transition: transform 0.4s ease;
         }
 
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.04);
-        }
+        .gallery-item:hover .gallery-image { transform: scale(1.04); }
 
-        .gallery-overlay {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-        }
+        .gallery-overlay { position: absolute; top: 14px; left: 14px; }
 
         .gallery-label {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0,0,0,0.55);
             color: #fff;
             font-size: 12px;
             font-weight: 600;
@@ -177,9 +155,7 @@
             backdrop-filter: blur(4px);
         }
 
-        .gallery-info {
-            padding: 20px 22px 24px;
-        }
+        .gallery-info { padding: 20px 22px 24px; }
 
         .gallery-info h3 {
             font-size: 17px;
@@ -196,13 +172,33 @@
             line-height: 1.6;
         }
 
-        .gallery-section {
-            padding: 20px 0 60px;
+        .gallery-section { padding: 20px 0 60px; }
+        .gallery-filters { padding: 0 0 8px; }
+
+        /* Social icons */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
         }
 
-        .gallery-filters {
-            padding: 0 0 8px;
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            flex-shrink: 0;
         }
+
+        .social-icon:hover { transform: translateY(-3px); opacity: 0.85; }
+        .social-icon.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .social-icon.tiktok { background: #000; }
+        .social-icon.facebook { background: #1877F2; }
+        .social-icon.youtube { background: #FF0000; }
     </style>
 </head>
 <body>
@@ -229,10 +225,7 @@
                     <p class="gallery-subtitle">Explore our latest campaigns, content creations, and creative projects for South African food and travel brands.</p>
                 </div>
                 <div class="gallery-header-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop"
-                        alt="Food content showcase"
-                        class="gallery-header-img">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop" alt="Food content showcase" class="gallery-header-img">
                 </div>
             </div>
         </div>
@@ -255,112 +248,76 @@
         <div class="section-wrapper">
             <div class="gallery-grid">
 
-                <!-- Food Content 1 -->
                 <div class="gallery-item" data-category="food">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&h=500&fit=crop" alt="Premium restaurant food photography" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Food Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Restaurant Showcase</h3>
-                        <p>Professional food photography campaign for premium dining establishment.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Restaurant Showcase</h3><p>Professional food photography campaign for premium dining establishment.</p></div>
                 </div>
 
-                <!-- Food Content 2 -->
                 <div class="gallery-item" data-category="food">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=500&fit=crop" alt="Food styling and photography" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Food Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Culinary Stories</h3>
-                        <p>Beautiful food styling and lifestyle photography for social media.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Culinary Stories</h3><p>Beautiful food styling and lifestyle photography for social media.</p></div>
                 </div>
 
-                <!-- Food Content 3 -->
                 <div class="gallery-item" data-category="food">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=500&h=500&fit=crop" alt="Colorful food plating" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Food Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Vibrant Plates</h3>
-                        <p>Dynamic food photography capturing colour and culture in every dish.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Vibrant Plates</h3><p>Dynamic food photography capturing colour and culture in every dish.</p></div>
                 </div>
 
-                <!-- Travel Content 1 -->
                 <div class="gallery-item" data-category="travel">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=500&fit=crop" alt="Travel and adventure" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Travel Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Destination Adventures</h3>
-                        <p>Captivating travel content showcasing South African destinations.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Destination Adventures</h3><p>Captivating travel content showcasing South African destinations.</p></div>
                 </div>
 
-                <!-- Travel Content 2 -->
                 <div class="gallery-item" data-category="travel">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&h=500&fit=crop" alt="Travel lifestyle journey" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Travel Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Journey Stories</h3>
-                        <p>Engaging travel narratives and lifestyle content for hospitality brands.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Journey Stories</h3><p>Engaging travel narratives and lifestyle content for hospitality brands.</p></div>
                 </div>
 
-                <!-- Travel Content 3 -->
                 <div class="gallery-item" data-category="travel">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=500&fit=crop" alt="Scenic destinations" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Travel Content</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Scenic Journeys</h3>
-                        <p>Visually stunning travel photography inspiring wanderlust and bookings.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Scenic Journeys</h3><p>Visually stunning travel photography inspiring wanderlust and bookings.</p></div>
                 </div>
 
-                <!-- Campaign 1 -->
                 <div class="gallery-item" data-category="campaigns">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=500&h=500&fit=crop" alt="Social media launch campaign" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Campaign</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Launch Campaign</h3>
-                        <p>Multi-platform campaign featuring edited video content and graphics.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Launch Campaign</h3><p>Multi-platform campaign featuring edited video content and graphics.</p></div>
                 </div>
 
-                <!-- Campaign 2 -->
                 <div class="gallery-item" data-category="campaigns">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop" alt="Video production campaign" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Campaign</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Video Content Series</h3>
-                        <p>Professional video editing and motion graphics for social engagement.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Video Content Series</h3><p>Professional video editing and motion graphics for social engagement.</p></div>
                 </div>
 
-                <!-- Campaign 3 -->
                 <div class="gallery-item" data-category="campaigns">
                     <div class="gallery-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=500&fit=crop" alt="Brand campaign" class="gallery-image">
                         <div class="gallery-overlay"><div class="gallery-label">Campaign</div></div>
                     </div>
-                    <div class="gallery-info">
-                        <h3>Brand Activation</h3>
-                        <p>Integrated campaign with cohesive visual identity and messaging.</p>
-                    </div>
+                    <div class="gallery-info"><h3>Brand Activation</h3><p>Integrated campaign with cohesive visual identity and messaging.</p></div>
                 </div>
 
             </div>
@@ -381,25 +338,35 @@
         <div class="footer-content">
             <p>&copy; 2026 Ntalabula Social Media Solutions. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" class="social-icon" aria-label="Instagram">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+
+                <!-- Instagram -->
+                <a href="#" class="social-icon instagram" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                     </svg>
                 </a>
-                <a href="#" class="social-icon" aria-label="LinkedIn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M7 9v8M7 7v0.01M11 9v8M17 9v8c0 1-1 2-2 2h-2c-1 0-2-1-2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- TikTok -->
+                <a href="#" class="social-icon tiktok" aria-label="TikTok">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
                     </svg>
                 </a>
-                <a href="#" class="social-icon" aria-label="Twitter">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 4s-1.5 1-3 1.5c1-1.5.5-3-2-3-.5 0-1 .5-1.5 1-1-1-2.5-1.5-4.5-1.5C6 2 3 5 3 9v2C3 12 2 14 2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M22 4c-1 1-3 3-3 3M2 14c0 2 2 4 6 4 4 0 6-2 6-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Facebook -->
+                <a href="#" class="social-icon facebook" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
                     </svg>
                 </a>
+
+                <!-- YouTube -->
+                <a href="#" class="social-icon youtube" aria-label="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+
             </div>
         </div>
     </footer>
